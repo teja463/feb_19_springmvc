@@ -74,6 +74,36 @@
 			<version>${logback.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!--
+		  Run the following command from maven bin folder. It adds this jar as a new library in local repo
+		  
+		  mvn install:install-file -Dfile=f:\classroom\javaee\ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.0 -Dpackaging=jar 
+		 -->
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.2.Final</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.3</version>
+		</dependency>
   
 	</dependencies>	
 	
