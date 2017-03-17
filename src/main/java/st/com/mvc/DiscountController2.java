@@ -9,19 +9,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller 
+/*  Note: Need to use ModelAttribute with name for error messages
+          to be displayed in .jsp */
+
+@Controller
 public class DiscountController2 {
-	
+
 	@RequestMapping(  value="/discount2",  method= RequestMethod.GET)
 	public String  displayForm(Model model)
 	{
 		Discount d = new Discount();
-        model.addAttribute("command", d);		
+        model.addAttribute("discount", d);
 		return "discount2";
 	}
-	
+
 	@RequestMapping(  value="/discount2", method= RequestMethod.POST)
-	public String  processForm(Model model,@Valid @ModelAttribute Discount d, 
+	public String  processForm(Model model,@Valid @ModelAttribute("discount") Discount d,
 			 BindingResult result)
 	{
 		if (!result.hasErrors())
@@ -32,9 +35,9 @@ public class DiscountController2 {
 		{
 			System.out.println("Error");
 			System.out.println(result.getFieldError("amount").getDefaultMessage());
-			
+
 		}
-		
+
 		model.addAttribute("command", d);
 		return "discount2";
 	}

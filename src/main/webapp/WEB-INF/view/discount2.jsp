@@ -11,7 +11,8 @@
 </head>
 <body>
 	<h2>Discount Calculation</h2>
-	<form:form action="discount2">
+	<!-- Without commandName validation messages do not appear, so use commandName -->
+	<form:form commandName="discount">
 		   Amount : <br />
 		<form:input type="text" name="amount" path="amount" />
 		<form:errors path="amount" />
